@@ -10,33 +10,49 @@ export class LotsListComponent {
 
   @Input() regular: string | undefined;
   
-
+  arrayMain: any;
 
   constructor (private dataService: CollectionService) {
-    
+    this.arrayMain = this.dataService.returnCollection();
   }
 
-  render (item: object): string | void  {
-    let bool: string;
-    if (!this.regular) {
-      bool = 'block';
-      return bool
-    } 
-    else {
-      if ('name' in item) {
-        const regexp = new RegExp(this.regular!)
-        if (typeof item.name === 'string') {
-          const itemValue: string = item.name;
-          if(regexp.test(itemValue)) {
-            bool = 'block';
-          }
-          else {
-            bool = 'none';
-          };
-          return bool;
+
+  render (item: object): boolean | void  {
+
+    let bool: boolean = false;
+
+    if (/*!this.regular && */('name' in item)) {
+      const regexp = new RegExp(this.regular!);
+      const itemValue: string = String(item.name);
+        if(!regexp.test(itemValue)) {
+          bool = true;
         }
-      };
-    };
+    }
+    return bool;
+  }
+
+  imageLot (item: object): string | void  {
+    let path: string = '';
+    if ('picture' in item) {
+      const imageName: string = String (item.picture);
+      path = `url(../assets/${imageName})`;
+    }
+    return path
+  }
+
+  nameRender (item: object): string | void {
+    if ('name' in item) {
+      const newName: string = String (item.name);
+      return newName;
+    }
+  }
+
+  priceRender (item: object): string | void {
+    if ('price' in item) {
+      const newStr: string = String (item.price);
+      const newPrice: string = `${newStr} ₴`;
+      return newPrice;
+    }
   }
 
 }
