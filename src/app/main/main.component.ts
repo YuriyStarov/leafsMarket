@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class MainComponent {
 
+  filterRegular: string | undefined;
+
+  constructor () {
+
+  }
+
+  filterList (regular: string) {
+    this.filterRegular = regular;
+  }
+
 }

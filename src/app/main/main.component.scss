@@ -1,0 +1,15 @@
+main {
+    width: 100vw;
+    position: relative;
+    .position {
+        position: absolute;
+        left: 20px;
+        top: 50px;
+    }
+    .next {
+        left: 70vw;
+    }
+    .next2 {
+        top: 100px
+    }
+}

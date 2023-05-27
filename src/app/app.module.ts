@@ -10,6 +10,9 @@ import { MainComponent } from './main/main.component';
 import { LotsComponent } from './lots/lots.component';
 import { ShopComponent } from './shop/shop.component';
 import { AdminComponent } from './admin/admin.component';
+import { FilterComponent } from './main/filter/filter.component';
+import { LotsListComponent } from './main/lots-list/lots-list.component';
+import { PagesComponent } from './main/pages/pages.component';
 
 const appRoutes: Routes =[
   { path: '', component: MainComponent},
@@ -25,7 +28,10 @@ const appRoutes: Routes =[
     MainComponent,
     LotsComponent,
     ShopComponent,
-    AdminComponent
+    AdminComponent,
+    FilterComponent,
+    LotsListComponent,
+    PagesComponent
   ],
   imports: [
     BrowserModule,
