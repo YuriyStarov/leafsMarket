@@ -5,18 +5,22 @@ import { Injectable } from '@angular/core';
 })
 export class CollectionService {
 
-  private leafsCollection: Array<object> = [{name: 'dodo', description: 'hfbchfbcf fvfcfvf gbhybhb hybyby', picture: 'fern.jpg', price: 300},{name: 'baba', description: 'hfbchfbcf fvfcfvf gbhybhb hybyby', picture: 'pine.jpg', price: 400},{name: 'sisi', description: 'hfbchfbcf fvfcfvf gbhybhb hybyby', picture: 'palm.jpg', price: 500}];
+  private leafsCollection: Array<object> = [];
 
   constructor() { }
 
   addLots (nameLot: string, descriptionLot: string, pictureLot: string, priceLot: number) {
+
+    const plugNum: string = String(this.leafsCollection.length + 1);
+    const plug: string = `lot#${plugNum}`;
 
     const newLot: object = {
 
       name: nameLot,
       description: descriptionLot,
       picture: pictureLot,
-      price: priceLot
+      price: priceLot,
+      id: plug
 
     };
 

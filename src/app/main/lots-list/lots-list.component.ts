@@ -8,7 +8,8 @@ import { CollectionService } from 'src/app/collection.service';
 })
 export class LotsListComponent {
 
-  @Input() regular: string | undefined;
+  @Input() regular: string | undefined = '';
+  valueLength: number = 0;
   
   arrayMain: any;
 
@@ -21,21 +22,21 @@ export class LotsListComponent {
 
     let bool: boolean = false;
 
-    if (/*!this.regular && */('name' in item)) {
+    if ('name' in item) {
       const regexp = new RegExp(this.regular!);
       const itemValue: string = String(item.name);
-        if(!regexp.test(itemValue)) {
+        if(!regexp.test(itemValue) && (this.regular !== '')) {
           bool = true;
         }
     }
+
     return bool;
   }
 
   imageLot (item: object): string | void  {
     let path: string = '';
     if ('picture' in item) {
-      const imageName: string = String (item.picture);
-      path = `url(../assets/${imageName})`;
+      path = String (item.picture);;
     }
     return path
   }

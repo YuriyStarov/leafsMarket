@@ -15,10 +15,7 @@ export class FilterComponent {
 
   filterList (inputFilter: HTMLInputElement) {
     const newValue: string = inputFilter.value;
-    const valueLength: number = newValue.length;
-    if (valueLength) {
       this.newEmit.emit(newValue);
-    }
   };
 
 }
