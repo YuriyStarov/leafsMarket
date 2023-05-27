@@ -1,5 +1,5 @@
 <main>
     <app-filter class="position" (newEmit)="filterList($event)"></app-filter>
     <app-pages class="position next"></app-pages>
-    <app-lots-list class="position next2"></app-lots-list>
+    <app-lots-list class="position next2" [regular]="filterRegular"></app-lots-list>
 </main>

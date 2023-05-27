@@ -24,4 +24,8 @@ export class CollectionService {
 
   }
 
+  returnCollection () {
+    return this.leafsCollection
+  }
+
 }

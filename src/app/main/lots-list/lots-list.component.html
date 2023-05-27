@@ -1,3 +1,3 @@
-<section>
+<section *NgFor="let item of dataService.returnCollection()" [style.display]="render(item)">
     <div class="picture"></div>
 </section>
