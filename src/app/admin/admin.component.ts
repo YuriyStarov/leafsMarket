@@ -8,31 +8,100 @@ import { CollectionService } from '../collection.service';
 })
 export class AdminComponent {
 
+  booleanFormName: boolean = false;
+
+  booleanFormDescription: boolean = false;
+
+  booleanFormPrice: boolean = false;
+
+  booleanFormPicture: boolean = false;
+
+  booleanAdmin: boolean = false;
+
   constructor (private dataService: CollectionService) {
 
   }
 
+  mainBoolean () {
+    this.booleanAdmin = !this.booleanFormName && !this.booleanFormDescription && !this.booleanFormPrice && !this.booleanFormPicture;
+  }
+
   validationName (inputElement: HTMLInputElement) {
 
+    const inputValue: string = inputElement.value;
+    if (!inputValue) {
+      this.booleanFormName = true;
+      return
+    };
+    const inputValueLength: number = inputValue.length;
+    const strRegExp: string = `[\\p{L}\\s\`]{${inputValueLength}}`;
+    const regexp = new RegExp(strRegExp,"u");
+    if (regexp.test(inputValue)) {
+      this.booleanFormName = false;
+    }
+    else {
+      this.booleanFormName = true;
+    };
+    this.mainBoolean();
   };
 
   validationDescription (inputElement: HTMLInputElement) {
-
+    const inputValue: string = inputElement.value;
+    if (!inputValue) {
+      this.booleanFormDescription = true;
+      return
+    };
+    const inputValueLength: number = inputValue.length;
+    const strRegExp: string = `[\\p{L}\\s\\d]{${inputValueLength}}`;
+    const regexp = new RegExp(strRegExp,"u");
+    if (regexp.test(inputValue)) {
+      this.booleanFormDescription = false;
+    }
+    else {
+      this.booleanFormDescription = true;
+    };
+    this.mainBoolean();
   };
 
   validationPrice (inputElement: HTMLInputElement) {
-
+    const inputValue: string = inputElement.value;
+    if (!inputValue) {
+      this.booleanFormPrice = true;
+      return
+    };
+    const inputValueLength: number = inputValue.length;
+    const strRegExp: string = `\\d{${inputValueLength}}`;
+    const regexp = new RegExp(strRegExp);
+    if (regexp.test(inputValue)) {
+      this.booleanFormPrice = false;
+    }
+    else {
+      this.booleanFormPrice = true;
+    };
+    this.mainBoolean();
   };
 
   validationPicture (inputElement: HTMLInputElement) {
-
+    const img = new Image();
+    img.src = `../assets/${inputElement.value}`;
+    img.onload = () => {this.booleanFormPicture = false; this.mainBoolean();};
+    img.onerror = () => {this.booleanFormPicture = true; this.mainBoolean();};
   };
 
   sendForm (inputNameElement: HTMLInputElement,inputDescriptionElement: HTMLInputElement,inputPriceElement: HTMLInputElement,inputPictureElement: HTMLInputElement) {
+
+    if (!this.booleanAdmin) {
+      return
+    };
     const newName: string = inputNameElement.value;
     const newDescription: string = inputDescriptionElement.value;
     const newPrice: number = Number (inputPriceElement.value);
     const newPicture: string = `url(../assets/${inputPictureElement.value})`;
+    inputNameElement.value = '';
+    inputDescriptionElement.value = '';
+    inputPriceElement.value = '';
+    inputPictureElement.value = '';
+    this.booleanAdmin = false;
     this.dataService.addLots(newName,newDescription,newPicture,newPrice);
   }
 

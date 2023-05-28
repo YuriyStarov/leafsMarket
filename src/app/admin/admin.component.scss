@@ -41,6 +41,9 @@ main {
     .fourth {
         top: 340px;
     }
+    .validation {
+        background-color: chartreuse;
+    }
     .button {
         position: absolute;
         left: calc(50vw - 50px);
@@ -52,9 +55,12 @@ main {
         border: none;
         color: darkblue;
         background-color: khaki;
+    }
+    .boxShadow {
         box-shadow: 2px 2px;
     }
-    .button:active {
+    .boxShadow:active {
         box-shadow: 0px 0px;
     }
+
 }

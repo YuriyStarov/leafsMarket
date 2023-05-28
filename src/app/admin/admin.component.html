@@ -1,10 +1,10 @@
 <main>
     <section class="section">Заповніть дані лота для внесення<br>до каталогу товарів</section>
-    <div class="div first">Назва</div><input #name (input)="validationName(name)" class="input first" type="text">
-    <div class="div second">Опис</div><input #description (input)="validationDescription(description)" class="input second" type="text">
-    <div class="div third">Ціна</div><input #price (input)="validationPrice(price)" class="input third" type="text">
-    <div class="div fourth">Зображення (назва файлу)</div><input #picture (input)="validationPicture(picture)" class="input fourth" type="text">
-    <button class="button" (click)="sendForm(name,description,price,picture)">відправити</button> 
+    <div class="div first">Назва</div><input #name (input)="validationName(name)" class="input first" [class.validation]="booleanFormName" type="text">
+    <div class="div second">Опис</div><input #description (input)="validationDescription(description)" class="input second" [class.validation]="booleanFormDescription" type="text">
+    <div class="div third">Ціна</div><input #price (input)="validationPrice(price)" class="input third" [class.validation]="booleanFormPrice" type="text">
+    <div class="div fourth">Зображення (назва файлу)</div><input #picture (input)="validationPicture(picture)" class="input fourth" [class.validation]="booleanFormPicture" type="text">
+    <button class="button" (click)="sendForm(name,description,price,picture)" [class.boxShadow]="booleanAdmin">додати</button> 
 </main>
 
 
