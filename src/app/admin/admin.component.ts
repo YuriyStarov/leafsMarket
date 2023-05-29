@@ -8,6 +8,8 @@ import { CollectionService } from '../collection.service';
 })
 export class AdminComponent {
 
+  arrayMain: any;
+
   booleanFormName: boolean = false;
 
   booleanFormDescription: boolean = false;
@@ -19,7 +21,7 @@ export class AdminComponent {
   booleanAdmin: boolean = false;
 
   constructor (private dataService: CollectionService) {
-
+    this.arrayMain = this.dataService.returnCollection();
   }
 
   mainBoolean () {
@@ -105,4 +107,32 @@ export class AdminComponent {
     this.dataService.addLots(newName,newDescription,newPicture,newPrice);
   }
 
+  imageLot (item: object): string | void  {
+  let path: string = '';
+  if ('picture' in item) {
+    path = String (item.picture);
+  }
+  return path
+  }
+
+  nameRender (item: object): string | void {
+  if ('name' in item) {
+    const newName: string = String (item.name);
+    return newName;
+  }
+  }
+
+  numLotRender (item: object): string | void {
+    if ('id' in item) {
+      const newNum: string = String (item.id);
+      return newNum;
+    }
+  }
+
+  deleteLots (buttonDelete: HTMLDivElement) {
+    const realId: string = buttonDelete.textContent!;
+    this.dataService.removeLots(realId);
+  }
+
 }
+
