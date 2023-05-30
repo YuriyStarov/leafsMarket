@@ -56,4 +56,11 @@ export class LotsListComponent {
     }
   }
 
+  realId (item: object): string | void  {
+    if ('id' in item) {
+      const newPath: string =  String (item.id);
+      return newPath;
+    }
+  }
+
 }

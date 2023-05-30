@@ -14,7 +14,7 @@ export class CollectionService {
   addLots (nameLot: string, descriptionLot: string, pictureLot: string, priceLot: number) {
 
     const plugNum: string = String(this.numLot);
-    const plug: string = `lot#${plugNum}`;
+    const plug: string = `lot${plugNum}`;
 
     const newLot: object = {
 
@@ -35,9 +35,7 @@ export class CollectionService {
 
     this.leafsCollection.forEach((element: object, index: number) => {
       if ('id' in element) {
-        const realRegExp: string = String(element.id);
-        const regexp = new RegExp(realRegExp);
-        if (regexp.test(idLot) && (realRegExp.length === idLot.length)) {
+        if (String(element.id) === idLot) {
             this.leafsCollection.splice(index,1);
             return
         };

@@ -13,13 +13,16 @@ import { AdminComponent } from './admin/admin.component';
 import { FilterComponent } from './main/filter/filter.component';
 import { LotsListComponent } from './main/lots-list/lots-list.component';
 import { PagesComponent } from './main/pages/pages.component';
+import { ErrorPathComponent } from './error-path/error-path.component';
+import { PresentationComponent } from './lots/presentation/presentation.component';
+import { CommentComponent } from './lots/comment/comment.component';
 
 const appRoutes: Routes =[
   { path: '', component: MainComponent},
-  { path: 'lots', component: LotsComponent},
+  { path: 'lots/:idPath', component: LotsComponent},
   { path: 'shop', component: ShopComponent},
   { path: 'admin', component: AdminComponent},
-  { path: '**', component: MainComponent }
+  { path: '**', component: ErrorPathComponent}
 ];
 
 @NgModule({
@@ -31,7 +34,10 @@ const appRoutes: Routes =[
     AdminComponent,
     FilterComponent,
     LotsListComponent,
-    PagesComponent
+    PagesComponent,
+    ErrorPathComponent,
+    PresentationComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 <main>
     <section *ngFor="let item of arrayMain" class="section" [class.invisible]="render(item)" [style.backgroundImage]="imageLot(item)">
-        <a class="realLot" routerLink="/lots"> {{ nameRender(item) }} <br><br><br><br> {{priceRender(item) }} </a>
+        <a class="realLot" [routerLink]="['lots',realId(item)]"> {{ nameRender(item) }} <br><br><br><br> {{priceRender(item) }} </a>
     </section>
 </main>
 
