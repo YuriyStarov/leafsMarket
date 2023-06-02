@@ -4,6 +4,7 @@
         <h1 class="lotName">{{pathName()}}</h1>
         {{pathDescription()}}
     </section>
-    <button class="buttons buyLot">Купити</button>
+    <button class="buttons buyLot" (click)="buyLot()">Купити</button>
     <a class="buttons toMain" routerLink="">Головна</a>
+    <div class="inTrash">Додано до корзини <span class="numInTrash">{{returnNumLot()}}</span> одиниць</div>
 </main>

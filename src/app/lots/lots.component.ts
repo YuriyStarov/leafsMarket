@@ -10,7 +10,6 @@ import {Subscription} from 'rxjs';
 })
 export class LotsComponent {
 
-
   idPath: string | undefined;
   private subscription: Subscription;
   constructor(private activateRoute: ActivatedRoute, private dataService: CollectionService){

@@ -35,5 +35,30 @@ export class PresentationComponent {
     return path;
   }
 
+  countLot () {
+    if ('numPurchases' in this.lotObject!) {
 
+      if (typeof this.lotObject.numPurchases === 'number') {
+        this.lotObject.numPurchases += 1;
+      };
+      
+    };
+  };
+
+  buyLot () {
+    if ('numPurchases' in this.lotObject!) {
+      this.countLot();
+      this.dataService.counterPurchases();
+    };
+    
+  };
+
+  returnNumLot () {
+    if ('numPurchases' in this.lotObject!) {
+
+      return this.lotObject.numPurchases;
+      
+    };
+    
+  }
 }

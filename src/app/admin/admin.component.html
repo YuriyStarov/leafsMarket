@@ -6,10 +6,9 @@
     <div class="div fourth">Зображення</div><input #picture (input)="validationPicture(picture)" class="input fourth" [class.validation]="booleanFormPicture" type="text"><div class="div2 fourth" [class.attention]="booleanFormPicture">укажіть назву картинки в директорії assets</div>
     <button class="button" (click)="sendForm(name,description,price,picture)" [class.boxShadow]="booleanAdmin">додати</button>
     <section class="allAddLots">
-        <div *ngFor="let item of arrayMain" class="miniList"  [style.backgroundImage]="imageLot(item)">
-            <div #idLot class="numLotStyle">{{ numLotRender(item) }}</div>
+        <div *ngFor="let item of arrayMain; let i = index" class="miniList"  [style.backgroundImage]="imageLot(item)">
             <div class="nameLotStyle">{{ nameRender(item) }}</div>
-            <button class="removeLots" (click)="deleteLots(idLot)">×</button>
+            <button class="removeLots" (click)="deleteLot(i)">×</button>
         </div>
     </section> 
 </main>

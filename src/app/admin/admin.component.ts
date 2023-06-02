@@ -10,13 +10,13 @@ export class AdminComponent {
 
   arrayMain: any;
 
-  booleanFormName: boolean = false;
+  booleanFormName: boolean = true;
 
-  booleanFormDescription: boolean = false;
+  booleanFormDescription: boolean = true;
 
-  booleanFormPrice: boolean = false;
+  booleanFormPrice: boolean = true;
 
-  booleanFormPicture: boolean = false;
+  booleanFormPicture: boolean = true;
 
   booleanAdmin: boolean = false;
 
@@ -129,9 +129,8 @@ export class AdminComponent {
     }
   }
 
-  deleteLots (buttonDelete: HTMLDivElement) {
-    const realId: string = buttonDelete.textContent!;
-    this.dataService.removeLots(realId);
+  deleteLot (index: number) {
+    this.dataService.removeLot(index);
   }
 
 }

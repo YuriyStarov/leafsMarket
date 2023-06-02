@@ -1,1 +1,8 @@
-<p>comment works!</p>
+<main>
+    <textarea #redactor class="writeComment" cols="30" rows="10" placeholder="додайте відгук"></textarea>
+    <div class="warningText" [class.invisible]="vision">Хоч щось скажіть!</div>
+    <button class="addComment" (click)="addComment(redactor)">Твоє слово важливе для нас! Завантаж! Тисни сюди...</button>
+    <section class="collectionComments">
+        <div *ngFor="let item of arrReturn()" class="newComments">{{item}}</div>
+    </section>
+</main>
