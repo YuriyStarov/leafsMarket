@@ -1,1 +1,10 @@
-<p>shop works!</p>
+<main>
+    <section *ngFor="let item of returnCollection()" class="lotsPosition" [class.invisible]="status(item)">
+        <div class="image" [style.backgroundImage]="pathImage(item)"></div>
+        <div class="image priceAndName">
+            {{pathName(item)}}<br><br>{{pathSum(item)}} ₴
+        </div>
+        <button class="buttons" (click)="plusPurchases(item,false)">-</button><div class="numLots">{{pathNum(item)}}</div><button class="buttons" (click)="plusPurchases(item,true)">+</button>
+        <button class="buttons delete" (click)="deletePurchase(item)">×</button>
+    </section>
+</main>

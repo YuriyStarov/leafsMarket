@@ -36,19 +36,19 @@ export class PresentationComponent {
   }
 
   countLot () {
-    if ('numPurchases' in this.lotObject!) {
+    if ('numPurchases' in this.lotObject! && 'purchaseStatus' in this.lotObject) {
 
       if (typeof this.lotObject.numPurchases === 'number') {
         this.lotObject.numPurchases += 1;
+        this.lotObject.purchaseStatus = true;
       };
-      
     };
   };
 
   buyLot () {
     if ('numPurchases' in this.lotObject!) {
       this.countLot();
-      this.dataService.counterPurchases();
+      this.dataService.updateBuffer();
     };
     
   };

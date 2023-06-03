@@ -4,23 +4,25 @@ a {
     top: -10px;
     left: 0px;
     text-decoration: none;
-    width: 65px;
-    height: 63px;
+    width: 75px;
+    height: 75px;
     border: 3px beige solid;
     border-radius: 30%;
     text-align: center;
     color: beige;
     font-size: 54px;
-    padding-top: 12px;
-    padding-left: 10px;
-}
+    z-index: 90;
+};
+.img {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 5px;
+    left: 8px;
+    z-index: 88;
+};
 .toAdmin {
     left: 125px;
-    font-size: 54px;
-    width: 75px;
-    height: 75px;
-    padding-top: 0px;
-    padding-left: 0px;
 };
 .count {
     width: 30px;
@@ -31,4 +33,5 @@ a {
     position: absolute;
     top: -8px;
     left: 27px;
+    z-index: 89;
 }

@@ -5,10 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class CollectionService {
 
-  private leafsCollection: Array<object>;
+  leafsCollection: Array<object>;
 
   numLot: number;
-  countPurchases: number;
 
   constructor() {
 
@@ -26,21 +25,6 @@ export class CollectionService {
   
       const newMarket: Array<object> = [];
       return newMarket;
-    })();
-
-    this.countPurchases = (() => {
-      if (localStorage.getItem('memory')) {
-
-        const memoryObject: object = JSON.parse(localStorage.getItem('memory')!);
-        if ("purchases" in memoryObject && typeof memoryObject.purchases === "number") {
-  
-          return memoryObject.purchases;
-  
-        }
-  
-      };
-  
-      return 0;
     })();
 
     this.numLot = (() => {
@@ -69,7 +53,6 @@ export class CollectionService {
     const memoryObject = {
       market: this.returnCollection(),
       countLot: this.numLot,
-      purchases: this.countPurchases
     };
     localStorage.setItem('memory', JSON.stringify(memoryObject));
   };
@@ -88,6 +71,7 @@ export class CollectionService {
       price: priceLot,
       id: plug,
       numPurchases: 0,
+      purchaseStatus: false,
       comment: arrayComments
 
     };
@@ -107,9 +91,15 @@ export class CollectionService {
 
   }
 
-  counterPurchases () {
-    this.countPurchases += 1;
-    this.updateBuffer();
+  readyPurchase () {
+    const myMainArray: Array<object> = this.returnCollection();
+    const sum = myMainArray.reduce((acc: number, element: object) => {
+        if ('numPurchases' in element && typeof element.numPurchases === 'number') {
+          acc = acc + element.numPurchases;
+        };
+        return acc
+    },0)
+    return sum
   }
 
 }

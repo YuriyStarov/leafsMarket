@@ -14,7 +14,8 @@ export class PagesComponent {
   
   allPurchases () {
 
-    return this.dataService.countPurchases;
+    const sum: number = this.dataService.readyPurchase();
+    return sum;
 
   }
 
