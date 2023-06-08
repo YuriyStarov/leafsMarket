@@ -76,7 +76,26 @@ deletePurchase (lotObject: object) {
   if ('numPurchases' in lotObject && 'purchaseStatus' in lotObject) {
     lotObject.numPurchases = 0;
     lotObject.purchaseStatus = false;
+    this.dataService.updateBuffer();
   }
+}
+
+sumMain () {
+  const myMainArray: Array<object> = this.returnCollection();
+    const sum = myMainArray.reduce((acc: number, element: object) => {
+        if ('numPurchases' in element && typeof element.numPurchases === 'number' && 'price' in element && typeof element.price === 'number') {
+          acc = acc + element.numPurchases*element.price;
+        };
+        return acc
+    },0)
+    return sum
+}
+
+checkout () {
+  const myMainArray: Array<object> = this.returnCollection();
+  myMainArray.forEach((element) => {
+    this.deletePurchase(element);
+  });
 }
 
 }

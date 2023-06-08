@@ -1,15 +1,30 @@
 main {
-    width: calc(100vw - 40px);
+    width: calc(97vw - 40px);
+    min-height: 350px;
     margin-left: 10px;
     margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    border-radius: 40px;
+    background-size: 100% 100%;
+    background-image: url(/assets/carpet.png);
+    padding-top: 25px;
     .section {
         width: 150px;
         height: 150px;
         background-size: 100% 100%;
         border-radius: 10px;
+        transform: rotateZ(-10deg);
+        margin-right: 20px;
+        box-shadow: mediumseagreen 3px 3px;
+        .image {
+            position: absolute;
+            width: 67px;
+            height: 80px;
+            left: 92px;
+            top: 5px;
+            transform: rotateZ(10deg);
+        };
         .realLot {
             display: block;
             width: 100%;
@@ -20,8 +35,17 @@ main {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: beige;
             font-size: 22px;
-        }
-    }
+        };
+    };
+    .section:hover {
+        filter: invert(0.25);
+        animation: move 0.6s;
+    };
+    @keyframes move {
+        0% {transform: rotateZ(-10deg);}
+        50% {transform: rotateZ(-7deg);}
+        100% {transform: rotateZ(-10deg);}
+    };
     .invisible {
          display: none;
     }

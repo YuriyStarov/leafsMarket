@@ -1,20 +1,18 @@
 $mainWidth: 100vw;
-
 main {
-    background-image: url(../assets/sky.jpg);
+    background-image: url(../assets/gras1.jpg);
     width: $mainWidth;
     height: 100vh;
     .div {
         width: $mainWidth;
         height: 95px;
         font-size: 40px;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         font-weight: bolder;
-        color: darkseagreen;
+        color: maroon;
+        font-family: cursive;
         text-align: center;
         .span {
-            color: khaki;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: navy;
         }
     }
 }

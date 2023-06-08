@@ -88,10 +88,11 @@ main {
         .miniList {
             width: 80px;
             height: 80px;
+            border-radius: 20px;
             background-size: 100% 100%;
             position: relative;
             font-size: 16px;
-            color: gold;
+            color: darkblue;
             .numLotStyle {
                 opacity: 0;
                 position: absolute
@@ -100,18 +101,23 @@ main {
                 width: 100%;
                 position: absolute;
                 height: 25px;
-                top: 25px;
+                left: -20px;
+                top: 0px;
                 text-align: center;
+                transform: rotateZ(-25deg);
+                font-weight: bolder;
+                color: beige;
             };
             .removeLots {
-                width: 18px;
-                height: 18px;
+                width: 60px;
+                height: 60px;
                 border: none;
-                color: gold;
+                color: red;
                 background-color: transparent;
                 position: absolute;
-                top: 3px;
-                left: 59px;
+                top: 8px;
+                left: 12px;
+                font-size: 55px;
             }
         }
     }

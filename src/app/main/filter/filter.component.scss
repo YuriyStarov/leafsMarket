@@ -1,8 +1,21 @@
 input {
+    position: relative;
+    left: 15px;
+    top: 25px;
     width: 400px;
     height: 40px;
     font-size: 30px;
     border: none;
     border-radius: 10px;
-    color: darkblue;
+    color: beige;
+    margin: 0;
+    padding: 0;
+    text-decoration: underline;
+    background-color: transparent;
+};
+input::placeholder {
+    color: beige;
+};
+input:focus {
+    outline: none;
 }
