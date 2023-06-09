@@ -1,9 +1,25 @@
 <main>
-    <section class="section">Заповніть дані лота для внесення<br>до каталогу товарів</section>
-    <div class="div first">Назва</div><input #name (input)="validationName(name)" class="input first" [class.validation]="booleanFormName" type="text"><div class="div2" [class.attention]="booleanFormName">використовуйте літери і пробіли</div>
-    <div class="div second">Опис</div><input #description (input)="validationDescription(description)" class="input second" [class.validation]="booleanFormDescription" type="text"><div class="div2 second" [class.attention]="booleanFormDescription">використовуйте літери, цифри та пробіли</div>
-    <div class="div third">Ціна</div><input #price (input)="validationPrice(price)" class="input third" [class.validation]="booleanFormPrice" type="text"><div class="div2 third" [class.attention]="booleanFormPrice">використовуйте лише цифри</div>
-    <div class="div fourth">Зображення</div><input #picture (input)="validationPicture(picture)" class="input fourth" [class.validation]="booleanFormPicture" type="text"><div class="div2 fourth" [class.attention]="booleanFormPicture">укажіть назву картинки в assets/showcase</div>
+    <section class="section">Заповніть дані лота для внесення до каталогу товарів</section>
+    <section class="boxForInput">
+        <div class="div">Назва</div>
+        <input #name (input)="validationName(name)" class="input" [class.validation]="booleanFormName" type="text">
+        <div class="div2" [class.attention]="booleanFormName">використовуйте літери і пробіли</div>
+    </section>
+    <section class="boxForInput">
+        <div class="div">Опис</div>
+        <input #description (input)="validationDescription(description)" class="input" [class.validation]="booleanFormDescription" type="text">
+        <div class="div2" [class.attention]="booleanFormDescription">використовуйте літери, цифри та пробіли</div>
+    </section>
+    <section class="boxForInput">
+        <div class="div">Ціна</div>
+        <input #price (input)="validationPrice(price)" class="input" [class.validation]="booleanFormPrice" type="text">
+        <div class="div2" [class.attention]="booleanFormPrice">використовуйте лише цифри</div>
+    </section>
+    <section class="boxForInput">
+        <div class="div">Зображення</div>
+        <input #picture (input)="validationPicture(picture)" class="input" [class.validation]="booleanFormPicture" type="text">
+        <div class="div2" [class.attention]="booleanFormPicture">укажіть назву картинки в assets/showcase</div>
+    </section>
     <button class="button" (click)="sendForm(name,description,price,picture)" [class.boxShadow]="booleanAdmin">додати</button>
     <section class="allAddLots">
         <div *ngFor="let item of arrayMain; let i = index" class="miniList"  [style.backgroundImage]="imageLot(item)">

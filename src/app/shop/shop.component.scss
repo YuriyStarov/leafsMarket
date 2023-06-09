@@ -1,21 +1,38 @@
+.toMain {
+    position: fixed;
+    display: block;
+    width: 33px;
+    height: 36px;
+    border: 2px solid navy;
+    border-radius: 50%;
+    font-size: 30px;
+    color: navy;
+    text-decoration: none;
+    padding-left: 7px;
+    padding-top: 4px;
+    left: 2vw;
+    top: 90px;
+};
 main {
     width: 90vw;
-    height: 500px;
+    min-height: 470px;
     margin-left: auto;
     margin-right: auto;
     padding-top: 10px;
     border: 3px solid beige;
     border-radius: 20px;
+    margin-top: 25px;
     .lotsPosition {
         width: 86vw;
         height: 100px;
-        border: 2px solid darkblue;
+        border: 1px solid darkblue;
         margin-left: auto;
         margin-right: auto;
         margin-top: 5px;
         border-radius: 10px;
-        background-color: lightgray;
+        background-image: linear-gradient(45deg, #2E8B57aa 0%, #00FF7Faa 50%, #98FB98aa 100%);
         display: flex;
+        justify-content: space-around;
         .image {
             width: 90px;
             height: 90px;
@@ -30,6 +47,12 @@ main {
             font-size: 26px;
             color: darkblue;
             text-align: center;
+            .name1 {
+                color: maroon;
+            }
+        };
+        .addRemove {
+            display: flex;
         };
         .buttons {
             width: 40px;
@@ -66,7 +89,7 @@ main {
         height: 5px;
         margin-left: auto;
         margin-right: auto;
-        background-color: darkgray;
+        background-color: navy;
         border: none;
     };
     .cartStatus {
@@ -75,6 +98,7 @@ main {
         margin-left: auto;
         margin-right: auto; 
         display: flex;
+        margin-top: 30px;
     };
     .tableStatus {
         text-align: center;
@@ -96,6 +120,6 @@ main {
     };
     .form:active {
         box-shadow: 0px 0px;
-    }
+    };
 
 }

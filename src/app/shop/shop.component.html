@@ -1,13 +1,18 @@
+<a routerLink="" class="toMain">⇱</a>
 <main>
     <section *ngFor="let item of returnCollection()" class="lotsPosition" [class.invisible]="status(item)">
         <div class="image" [style.backgroundImage]="pathImage(item)"></div>
         <div class="image priceAndName">
-            {{pathName(item)}}<br><br>{{pathSum(item)}} ₴
+          <span class="name1">{{pathName(item)}}</span><br><br>{{pathSum(item)}} ₴
         </div>
-        <button class="buttons" (click)="plusPurchases(item,false)">-</button><div class="numLots">{{pathNum(item)}}</div><button class="buttons" (click)="plusPurchases(item,true)">+</button>
+        <div class="addRemove">
+            <button class="buttons" (click)="plusPurchases(item,false)">-</button>
+            <div class="numLots">{{pathNum(item)}}</div>
+            <button class="buttons" (click)="plusPurchases(item,true)">+</button>
+        </div>
         <button class="buttons delete" (click)="deletePurchase(item)">×</button>
     </section>
-    <br><hr class="line"><br><br><br>
+    <br><hr class="line">
     <section class="cartStatus">
         <div class="tableStatus">{{sumMain()}} ₴</div>
         <button class="form" (click)="checkout()">оформити покупку</button>
