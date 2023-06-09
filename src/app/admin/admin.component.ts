@@ -85,7 +85,7 @@ export class AdminComponent {
 
   validationPicture (inputElement: HTMLInputElement) {
     const img = new Image();
-    img.src = `../assets/${inputElement.value}`;
+    img.src = `../assets/showcase/${inputElement.value}`;
     img.onload = () => {this.booleanFormPicture = false; this.mainBoolean();};
     img.onerror = () => {this.booleanFormPicture = true; this.mainBoolean();};
   };
@@ -98,7 +98,7 @@ export class AdminComponent {
     const newName: string = inputNameElement.value;
     const newDescription: string = inputDescriptionElement.value;
     const newPrice: number = Number (inputPriceElement.value);
-    const newPicture: string = `url(../assets/${inputPictureElement.value})`;
+    const newPicture: string = `url(../assets/showcase/${inputPictureElement.value})`;
     inputNameElement.value = '';
     inputDescriptionElement.value = '';
     inputPriceElement.value = '';
