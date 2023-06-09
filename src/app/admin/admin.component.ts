@@ -33,6 +33,7 @@ export class AdminComponent {
     const inputValue: string = inputElement.value;
     if (!inputValue) {
       this.booleanFormName = true;
+      this.mainBoolean();
       return
     };
     const inputValueLength: number = inputValue.length;
@@ -51,6 +52,7 @@ export class AdminComponent {
     const inputValue: string = inputElement.value;
     if (!inputValue) {
       this.booleanFormDescription = true;
+      this.mainBoolean();
       return
     };
     const inputValueLength: number = inputValue.length;
@@ -69,6 +71,7 @@ export class AdminComponent {
     const inputValue: string = inputElement.value;
     if (!inputValue) {
       this.booleanFormPrice = true;
+      this.mainBoolean();
       return
     };
     const inputValueLength: number = inputValue.length;
@@ -103,6 +106,10 @@ export class AdminComponent {
     inputDescriptionElement.value = '';
     inputPriceElement.value = '';
     inputPictureElement.value = '';
+    this.booleanFormName = true;
+    this.booleanFormDescription = true;
+    this.booleanFormPicture = true;
+    this.booleanFormPrice = true;
     this.booleanAdmin = false;
     this.dataService.addLots(newName,newDescription,newPicture,newPrice);
   }
